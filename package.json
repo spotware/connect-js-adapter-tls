@@ -8,5 +8,12 @@
     "ctratder"
   ],
   "author": "Spotware Services <connect@spotware.com>",
-  "private": true
+  "private": true,
+  "scripts": {
+    "test": "istanbul cover --include-all-sources node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=test/support/jasmine.json"
+  },
+  "devDependencies": {
+    "istanbul": "0.4.2",
+    "jasmine": "2.4.1"
+  }
 }
