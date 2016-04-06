@@ -1,0 +1,12 @@
+{
+  "name": "connect-js-adapter-tls",
+  "version": "1.0.0",
+  "description": "Spotware Connect network adapter in js for TLS socket connection",
+  "keywords": [
+    "spotware",
+    "connect",
+    "ctratder"
+  ],
+  "author": "Spotware Services <connect@spotware.com>",
+  "private": true
+}
