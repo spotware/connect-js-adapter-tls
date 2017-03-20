@@ -1,6 +1,6 @@
 {
   "name": "connect-js-adapter-tls",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Spotware Connect network adapter in js for TLS socket connection",
   "keywords": [
     "spotware",
@@ -13,7 +13,7 @@
     "test": "istanbul cover --include-all-sources node_modules/jasmine/bin/jasmine.js JASMINE_CONFIG_PATH=test/support/jasmine.json"
   },
   "devDependencies": {
-    "state-emitter": "spotware/state-emitter#v2.0.0",
+    "state-emitter": "spotware/state-emitter#v2.0.2",
     "istanbul": "0.4.2",
     "jasmine": "2.4.1"
   }
