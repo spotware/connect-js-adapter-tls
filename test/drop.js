@@ -1,4 +1,4 @@
-let
+const
     test = require('ava'),
     ProtoMessages = require('connect-protobuf-messages'),
     EncodeDecode = require('connect-js-encode-decode'),
@@ -15,27 +15,12 @@ let
     createAdapter = require('../index'),
     adapter = createAdapter(codec);
 
-test.cb('send ping message then recive respond', t => {
-    const
-        pingReq = 52,
-        pingRes = 53,
-        payload = {timestamp: Date.now()},
-        clientMsgId = 'uuid';
-
+test.cb('inacitve socket should be closed', t => {
     protocol.load();
     protocol.build();
 
-    adapter.onOpen(() => {
-        adapter.send({
-            payloadType: pingReq,
-            payload: payload,
-            clientMsgId: clientMsgId
-        });
-    });
-    adapter.onData((payloadType, respond, id) => {
-        t.is(payloadType, pingRes);
-        t.not(respond.timestamp, undefined);
-        t.is(id, clientMsgId);
+    adapter.onData(() => {});
+    adapter.onEnd(() => {
         t.end();
     });
     adapter.connect(port, host);

@@ -4,22 +4,20 @@ var
     tls = require('tls'),
     StateEmitter = require('state-emitter').StateEmitter;
 
-module.exports = function (params) {
+module.exports = function (codec) {
     var
         ondata,
         socket,
         connected = true,
         disconnected = false,
-        host = params.host,
-        port = params.port,
         state = new StateEmitter();
 
     return {
-        connect: function () {
+        connect: function (port, host) {
             socket = tls.connect(port, host, function () {
                 state.next(connected);
             });
-            socket.on('data', ondata);
+            socket.on('data', codec.decode);
             socket.on('end', function () {
                 state.next(disconnected);
             });
@@ -27,8 +25,10 @@ module.exports = function (params) {
                 state.next(disconnected);
             });
         },
-        send: function (data) {
-            socket.write(data);
+        send: function (message) {
+            socket.write(
+                codec.encode(message.payloadType, message.payload, message.clientMsgId)
+            );
         },
         onOpen: function (callback) {
             state.whenEqual(connected, callback);
@@ -40,7 +40,7 @@ module.exports = function (params) {
             state.whenEqual(disconnected, callback);
         },
         onData: function (callback) {
-            ondata = callback;
+            codec.subscribe(callback);
         }
     };
 };
