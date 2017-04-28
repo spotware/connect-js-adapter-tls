@@ -1,6 +1,6 @@
 {
   "name": "connect-js-adapter-tls",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "Spotware Connect network adapter in js for TLS socket connection",
   "keywords": [
     "spotware",
