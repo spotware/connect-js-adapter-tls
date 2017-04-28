@@ -12,6 +12,9 @@
   "scripts": {
     "test": "nyc ava"
   },
+  "dependencies": {
+    "state-emitter": "spotware/state-emitter#v2.0.2"
+  },
   "devDependencies": {
     "ava": "0.19.1",
     "connect-js-codec": "spotware/connect-js-codec#v1.0.4",
