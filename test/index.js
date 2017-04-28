@@ -1,4 +1,4 @@
-let
+const
     test = require('ava'),
     ProtoMessages = require('connect-protobuf-messages'),
     EncodeDecode = require('connect-js-encode-decode'),
