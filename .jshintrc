@@ -1,5 +1,3 @@
 {
-  "globalstrict": true,
-  "jasmine": true,
   "node": true
 }
